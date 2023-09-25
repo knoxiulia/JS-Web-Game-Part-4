@@ -4,3 +4,8 @@ function newImage(url){
     document.body.append(image)
     return image
 }
+
+
+let direction = null;
+let x = 100;
+let y = 250;

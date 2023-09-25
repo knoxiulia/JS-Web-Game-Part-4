@@ -1,71 +1,29 @@
 const inventory = newInventory()
 move(inventory).to(0, 0)
 
-function moveWithArrowKeys(left, bottom) {
-let direction = null
-let x = left;
-let y = bottom;
+const character = newImage('assets/green-character/static.gif')
 
-element.style.left = x + 'px'
-element.style.bottom = y + 'px'
-
-function moveCharacter() {
-    if(direction === 'west') {
-        x = x - 1
+function handleDirectionChange(direction){
+    if(direction === null){
+        character.src = 'assets/green-character/static.gif'
     }
-
-    if(direction === 'north') {
-        y = y + 1
+    if(direction === 'west'){
+        character.src = 'assets/green-character/west.gif'
     }
-
-    if(direction === 'east') {
-        x = x + 1
+    if(direction === 'north'){
+        character.src = 'assets/green-character/north.gif'
     }
-
-    if(direction === 'south') {
-        y = y - 1
+    if(direction === 'east'){
+        character.src = 'assets/green-character/east.gif'
     }
-    element.style.left = x + 'px'
-    element.style.bottom = y + 'px'
-}
+    if(direction === 'south'){
+        character.src = 'assets/green-character/south.gif'
+    }
 }
 
-setInterval(moveCharacter, 1)
+move(character).withArrowKeys(100, 250, handleDirectionChange)
 
-    function move(element) {
-        element.style.position = 'fixed'
 
-    function moveWithArrowKeys(left, bottom){
-
-    }
-
-    return {
-        to: moveToCoordinates,
-        withArrowKeys: moveWithArrowKeys
-    }
-
-}
-
-document.addEventListener('keydown', function (e){
-    if(e.repeat) return;
-
-    if(e.key === 'ArrowLeft'){
-        direction = "west"
-    }
-    if(e.key === "ArrowUp"){
-        direction = 'north'
-    }
-    if(e.key === 'ArrowRight'){
-        direction = 'east'
-    }
-    if(e.key === 'ArrowDown'){
-        direction = 'south'
-    }
-
-    document.addEventListener('keyup', function(e){
-        direction = null
-    })
-}
 
 
 
